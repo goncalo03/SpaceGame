@@ -42,3 +42,4 @@ C:\Users\gcout\Documents\IPCA\TDV\SpaceGame\SpaceGame\bin\Debug\net8.0\Content\b
 C:\Users\gcout\Documents\IPCA\TDV\SpaceGame\SpaceGame\bin\Debug\net8.0\Content\background_music.xnb
 C:\Users\gcout\Documents\IPCA\TDV\SpaceGame\SpaceGame\bin\Debug\net8.0\Content\explosion.xnb
 C:\Users\gcout\Documents\IPCA\TDV\SpaceGame\SpaceGame\bin\Debug\net8.0\Content\laser.xnb
+c:\Users\gcout\Documents\IPCA\TDV\SpaceGame\SpaceGame\obj\Debug\net8.0\SpaceGame.sourcelink.json
