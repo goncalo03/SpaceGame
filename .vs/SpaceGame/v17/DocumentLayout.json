@@ -1,0 +1,100 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gcout\\Documents\\IPCA\\TDV\\SpaceGame\\SpaceGame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{ECBCAB61-9386-4D23-B8B5-07106679E827}|SpaceGame.csproj|c:\\users\\gcout\\documents\\ipca\\tdv\\spacegame\\spacegame\\entities\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECBCAB61-9386-4D23-B8B5-07106679E827}|SpaceGame.csproj|solutionrelative:entities\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECBCAB61-9386-4D23-B8B5-07106679E827}|SpaceGame.csproj|c:\\users\\gcout\\documents\\ipca\\tdv\\spacegame\\spacegame\\entities\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECBCAB61-9386-4D23-B8B5-07106679E827}|SpaceGame.csproj|solutionrelative:entities\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECBCAB61-9386-4D23-B8B5-07106679E827}|SpaceGame.csproj|c:\\users\\gcout\\documents\\ipca\\tdv\\spacegame\\spacegame\\entities\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECBCAB61-9386-4D23-B8B5-07106679E827}|SpaceGame.csproj|solutionrelative:entities\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECBCAB61-9386-4D23-B8B5-07106679E827}|SpaceGame.csproj|c:\\users\\gcout\\documents\\ipca\\tdv\\spacegame\\spacegame\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECBCAB61-9386-4D23-B8B5-07106679E827}|SpaceGame.csproj|solutionrelative:game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ECBCAB61-9386-4D23-B8B5-07106679E827}|SpaceGame.csproj|c:\\users\\gcout\\documents\\ipca\\tdv\\spacegame\\spacegame\\background.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ECBCAB61-9386-4D23-B8B5-07106679E827}|SpaceGame.csproj|solutionrelative:background.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\gcout\\Documents\\IPCA\\TDV\\SpaceGame\\SpaceGame\\Game1.cs",
+              "RelativeDocumentMoniker": "Game1.cs",
+              "ToolTip": "C:\\Users\\gcout\\Documents\\IPCA\\TDV\\SpaceGame\\SpaceGame\\Game1.cs",
+              "RelativeToolTip": "Game1.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAAwJUAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T16:29:37.6Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\gcout\\Documents\\IPCA\\TDV\\SpaceGame\\SpaceGame\\Entities\\Player.cs",
+              "RelativeDocumentMoniker": "Entities\\Player.cs",
+              "ToolTip": "C:\\Users\\gcout\\Documents\\IPCA\\TDV\\SpaceGame\\SpaceGame\\Entities\\Player.cs",
+              "RelativeToolTip": "Entities\\Player.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T16:30:30.118Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Enemy.cs",
+              "DocumentMoniker": "C:\\Users\\gcout\\Documents\\IPCA\\TDV\\SpaceGame\\SpaceGame\\Entities\\Enemy.cs",
+              "RelativeDocumentMoniker": "Entities\\Enemy.cs",
+              "ToolTip": "C:\\Users\\gcout\\Documents\\IPCA\\TDV\\SpaceGame\\SpaceGame\\Entities\\Enemy.cs",
+              "RelativeToolTip": "Entities\\Enemy.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T20:48:27.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Bullet.cs",
+              "DocumentMoniker": "C:\\Users\\gcout\\Documents\\IPCA\\TDV\\SpaceGame\\SpaceGame\\Entities\\Bullet.cs",
+              "RelativeDocumentMoniker": "Entities\\Bullet.cs",
+              "ToolTip": "C:\\Users\\gcout\\Documents\\IPCA\\TDV\\SpaceGame\\SpaceGame\\Entities\\Bullet.cs",
+              "RelativeToolTip": "Entities\\Bullet.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwA4AAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T20:48:35.349Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Background.cs",
+              "DocumentMoniker": "C:\\Users\\gcout\\Documents\\IPCA\\TDV\\SpaceGame\\SpaceGame\\Background.cs",
+              "RelativeDocumentMoniker": "Background.cs",
+              "ToolTip": "C:\\Users\\gcout\\Documents\\IPCA\\TDV\\SpaceGame\\SpaceGame\\Background.cs",
+              "RelativeToolTip": "Background.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAUwDAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-16T21:07:25.681Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
