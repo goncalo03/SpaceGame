@@ -284,7 +284,7 @@ public class Game1 : Game
                 new Vector2(
                     new Random().Next(0, ScreenWidth - enemyTexture.Width),
                     -enemyTexture.Height),
-                currentEnemySpeed)); // Usa a velocidade atualizada
+                currentEnemySpeed));
             enemySpawnTimer = spawnInterval;
         }
 
