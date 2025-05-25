@@ -33,6 +33,12 @@ public class Game1 : Game
     float enemySpawnTimer;
     float spawnInterval = 1.5f;
 
+    // Variáveis de dificuldade
+    private float baseEnemySpeed = 2f;
+    private float currentEnemySpeed;
+    private bool speedIncreasedAt1500 = false;
+    private bool speedIncreasedAt3000 = false;
+
     public static int ScreenWidth => 800;
     public static int ScreenHeight => 600;
 
@@ -44,7 +50,6 @@ public class Game1 : Game
 
     public int Lives { get; set; } = 3;
     
-    // Estados do jogo
     public enum GameState
     {
         MainMenu,
@@ -54,13 +59,11 @@ public class Game1 : Game
     
     public GameState CurrentGameState { get; set; } = GameState.MainMenu;
     
-    // Opções do menu
     private string[] mainMenuOptions = { "Start Game", "Exit" };
     private string[] gameOverOptions = { "Restart", "Main Menu", "Exit" };
     private int selectedMainMenuOption = 0;
     private int selectedGameOverOption = 0;
 
-    // Controles do menu
     private KeyboardState currentKeyboardState;
     private KeyboardState previousKeyboardState;
     private float menuCooldown = 0.15f;
@@ -84,6 +87,8 @@ public class Game1 : Game
         enemies = new List<Enemy>();
         bullets = new List<Bullet>();
         parallaxLayers = new List<ParallaxLayer>();
+
+        currentEnemySpeed = baseEnemySpeed;
 
         base.Initialize();
     }
@@ -132,7 +137,6 @@ public class Game1 : Game
 
         float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-        // Atualiza o cooldown do menu
         if (currentCooldown > 0)
         {
             currentCooldown -= elapsed;
@@ -143,7 +147,6 @@ public class Game1 : Game
             layer.Update(gameTime);
         }
 
-        // Atualização baseada no estado atual do jogo
         switch (CurrentGameState)
         {
             case GameState.MainMenu:
@@ -166,7 +169,6 @@ public class Game1 : Game
     {
         if (currentCooldown <= 0)
         {
-            // Navegação no menu principal
             if (IsKeyPressed(Keys.Down))
             {
                 selectedMainMenuOption = (selectedMainMenuOption + 1) % mainMenuOptions.Length;
@@ -178,16 +180,15 @@ public class Game1 : Game
                 currentCooldown = menuCooldown;
             }
 
-            // Seleção de opção
             if (IsKeyPressed(Keys.Enter))
             {
                 currentCooldown = menuCooldown;
                 
-                if (selectedMainMenuOption == 0) // Start Game
+                if (selectedMainMenuOption == 0)
                 {
                     StartNewGame();
                 }
-                else if (selectedMainMenuOption == 1) // Exit
+                else if (selectedMainMenuOption == 1)
                 {
                     Exit();
                 }
@@ -199,7 +200,6 @@ public class Game1 : Game
     {
         if (currentCooldown <= 0)
         {
-            // Navegação no menu de game over
             if (IsKeyPressed(Keys.Down))
             {
                 selectedGameOverOption = (selectedGameOverOption + 1) % gameOverOptions.Length;
@@ -211,22 +211,20 @@ public class Game1 : Game
                 currentCooldown = menuCooldown;
             }
 
-            // Seleção de opção
             if (IsKeyPressed(Keys.Enter))
             {
                 currentCooldown = menuCooldown;
                 
-                if (selectedGameOverOption == 0) // Restart
+                if (selectedGameOverOption == 0)
                 {
                     StartNewGame();
                 }
-                else if (selectedGameOverOption == 1) // Main Menu
+                else if (selectedGameOverOption == 1)
                 {
-                    // Apenas muda para o menu principal sem reiniciar o jogo
                     CurrentGameState = GameState.MainMenu;
                     selectedMainMenuOption = 0;
                 }
-                else if (selectedGameOverOption == 2) // Exit
+                else if (selectedGameOverOption == 2)
                 {
                     Exit();
                 }
@@ -247,6 +245,9 @@ public class Game1 : Game
         bullets.Clear();
         player.Position = new Vector2(400, 500);
         enemySpawnTimer = spawnInterval;
+        currentEnemySpeed = baseEnemySpeed;
+        speedIncreasedAt1500 = false;
+        speedIncreasedAt3000 = false;
         CurrentGameState = GameState.Playing;
     }
 
@@ -260,6 +261,19 @@ public class Game1 : Game
             return;
         }
 
+        // Aumento de dificuldade baseado na pontuação
+        if (score >= 1500 && !speedIncreasedAt1500)
+        {
+            currentEnemySpeed += 0.5f;
+            speedIncreasedAt1500 = true;
+        }
+
+        if (score >= 3000 && !speedIncreasedAt3000)
+        {
+            currentEnemySpeed += 0.5f;
+            speedIncreasedAt3000 = true;
+        }
+
         player.Update(gameTime);
 
         float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -268,9 +282,9 @@ public class Game1 : Game
         {
             enemies.Add(new Enemy(enemyTexture,
                 new Vector2(
-                    new System.Random().Next(0, ScreenWidth - enemyTexture.Width),
+                    new Random().Next(0, ScreenWidth - enemyTexture.Width),
                     -enemyTexture.Height),
-                2f));
+                currentEnemySpeed)); // Usa a velocidade atualizada
             enemySpawnTimer = spawnInterval;
         }
 
@@ -352,7 +366,6 @@ public class Game1 : Game
             DepthStencilState.None,
             RasterizerState.CullCounterClockwise);
 
-        // Desenha o fundo em todos os estados
         foreach (var layer in parallaxLayers)
         {
             layer.Draw(spriteBatch);
@@ -379,14 +392,12 @@ public class Game1 : Game
 
     private void DrawMainMenu()
     {
-        // Título do jogo
         string title = "SPACE SHOOTER";
         Vector2 titleSize = font.MeasureString(title);
         spriteBatch.DrawString(font, title, 
             new Vector2(ScreenWidth / 2 - titleSize.X / 2, ScreenHeight / 4), 
             Color.White);
 
-        // Opções do menu
         for (int i = 0; i < mainMenuOptions.Length; i++)
         {
             Color color = (i == selectedMainMenuOption) ? Color.Yellow : Color.White;
@@ -396,7 +407,6 @@ public class Game1 : Game
                 color);
         }
 
-        // Instruções
         string instructions = "Use UP/DOWN to navigate, ENTER to select";
         Vector2 instructionsSize = font.MeasureString(instructions);
         spriteBatch.DrawString(font, instructions,
@@ -426,25 +436,21 @@ public class Game1 : Game
 
     private void DrawGameOverMenu()
     {
-        // Sobreposição semi-transparente
         Rectangle overlay = new Rectangle(0, 0, ScreenWidth, ScreenHeight);
         spriteBatch.Draw(pixelTexture, overlay, new Color(0, 0, 0, 150));
 
-        // Título "Game Over"
         string gameOverText = "GAME OVER";
         Vector2 gameOverSize = font.MeasureString(gameOverText);
         spriteBatch.DrawString(font, gameOverText,
             new Vector2(ScreenWidth / 2 - gameOverSize.X / 2, ScreenHeight / 4),
             Color.Red);
 
-        // Pontuação
         string scoreText = $"Score: {score}";
         Vector2 scoreSize = font.MeasureString(scoreText);
         spriteBatch.DrawString(font, scoreText,
             new Vector2(ScreenWidth / 2 - scoreSize.X / 2, ScreenHeight / 4 + 60),
             Color.White);
 
-        // Opções do menu
         for (int i = 0; i < gameOverOptions.Length; i++)
         {
             Color color = (i == selectedGameOverOption) ? Color.Yellow : Color.White;
